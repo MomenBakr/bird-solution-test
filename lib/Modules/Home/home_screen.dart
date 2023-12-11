@@ -7,7 +7,7 @@ import 'package:get_storage/get_storage.dart';
 class HomeScreen extends StatelessWidget {
 
 
-  final box = GetStorage();
+  final box = GetStorage(); // Local storage variable already carrying the token now from the user login
 
   @override
   Widget build(BuildContext context) {
@@ -28,10 +28,8 @@ class HomeScreen extends StatelessWidget {
                   padding:  EdgeInsets.symmetric(horizontal: 20.sp),
                   child: InkWell(
                     onTap: (){
-
-                      box.remove('token');
-                      Get.offAll(LoginScreen());
-
+                      box.remove('token'); // the user click on logout so the token will be removed
+                      Get.offAll(LoginScreen()); // and navigate him back to the login screen and close all stack of screens
                     },
                     child: Container(
                       width: double.infinity,
@@ -39,9 +37,9 @@ class HomeScreen extends StatelessWidget {
                       decoration: BoxDecoration(
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.grey, // Shadow color
+                            color: Colors.grey,
                             offset: Offset(0, 4), // Offset in the x and y directions
-                            blurRadius: 6.0, // Blur radius
+                            blurRadius: 6.0,
                           ),
                         ],
                         color: Color.fromRGBO(122,95,201,1),
